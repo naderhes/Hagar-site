@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>لها وحدها 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- قلوب متحركة -->
+<div class="hearts"></div>
+
+<!-- شاشة الباسورد -->
+<div id="login" class="center">
+  <h1>🌸 أَنْتِ كِفَايَتِي…💗 🌸</h1>
+  <p>اكتبي التاريخ الذي قرّر فيه الغياب أن يتراجع 💌</p>
+  <input type="password" id="password" placeholder="اكتبي التاريخ">
+  <button onclick="checkPassword()">دخول</button>
+  <p id="error"></p>
+</div>
+
+<!-- المحتوى -->
+<div id="content" class="hidden">
+
+  <h2>🌝💗 صباح الخير يا خيري وخيرتي واختياري</h2>
+
+  <!-- صورها -->
+  <p>اضغطي على القلب ❤️</p>
+  <div class="box" onclick="toggle('photos')">❤️</div>
+  <div id="photos" class="hidden slider">
+    <button onclick="prevImage()">◀</button>
+    <img id="photo" src="images/1.jpg">
+    <button onclick="nextImage()">▶</button>
+  </div>
+
+  <div class="space"></div>
+
+  <!-- الرسائل -->
+  <p>اضغطي هنا شوفي رسالة ليكي 💌</p>
+  <div class="box" onclick="toggle('messagesBox')">💌</div>
+  <div id="messagesBox" class="hidden slider">
+    <button onclick="prevMsg()">◀</button>
+    <img id="msg" src="messages/1.jpg">
+    <button onclick="nextMsg()">▶</button>
+  </div>
+
+  <div class="space"></div>
+
+  <!-- الهدية الأولى -->
+  <p>اضغطي هنا شوفي الهدية الأولى 🎁</p>
+  <div class="box" onclick="toggle('gift1')">🎁</div>
+  <div id="gift1" class="hidden">
+    <img src="gift/gift1.jpg" class="gift-img">
+  </div>
+
+  <div class="space"></div>
+
+  <!-- الموسيقى -->
+  <p>الهدية الثانية 🎶</p>
+  <div class="box" onclick="playMusic()">🎁</div>
+  <audio id="music" src="music/song.mp3"></audio>
+
+  <div class="space"></div>
+
+  <p class="end">
+    طَابَ مَقَامُكِ فِي فُؤَادِي،<br>
+    وَدُمْتِ لِي عُمُرًا حَتَّى أَفْنَى 💗🌹<br>
+    نادر ♥️
+  </p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
