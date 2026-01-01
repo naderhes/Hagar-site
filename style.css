@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(#ffb6c1, #ff69b4);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.login {
+  padding: 40px;
+}
+
+input {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  width: 220px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #ff4f8b;
+  color: white;
+  cursor: pointer;
+}
+
+.section {
+  padding: 80px 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.flip-box, .gift {
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.2);
+  animation: float 2s infinite ease-in-out;
+  cursor: pointer;
+}
+
+.slider img {
+  width: 250px;
+  border-radius: 20px;
+}
+
+.slider button {
+  font-size: 30px;
+}
+
+.spacer {
+  height: 400px;
+}
+
+@keyframes float {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+  100% {transform: translateY(0);}
+}
