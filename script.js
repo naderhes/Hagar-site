@@ -1,101 +1,68 @@
-// 1. وظيفة إنشاء القلوب المتحركة في الخلفية
-function createHeart() {
-    const heartContainer = document.getElementById('hearts-container');
-    if (!heartContainer) return;
-
+// 1. توليد القلوب الطائرة
+function createFloatingHeart() {
+    const container = document.getElementById('hearts-container');
     const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.innerHTML = '❤️'; // يمكنك تغيير الشكل هنا
+    heart.classList.add('floating-heart');
+    heart.innerHTML = '💗';
     heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = Math.random() * 3 + 2 + 's'; // سرعة عشوائية
-    heart.style.fontSize = Math.random() * 20 + 10 + 'px'; // أحجام مختلفة
-    
-    heartContainer.appendChild(heart);
-
-    // إزالة القلب بعد انتهاء الأنيميشن عشان المتصفح ميهنجش
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
+    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    container.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
 }
+setInterval(createFloatingHeart, 200);
 
-// تشغيل القلوب تلقائياً كل 300 مللي ثانية
-setInterval(createHeart, 300);
-
-// 2. وظيفة التحقق من كلمة السر (تاريخ الميلاد)
+// 2. التحقق من الباسورد
 function checkPassword() {
-    const passInput = document.getElementById('password');
-    const passValue = passInput.value.trim();
-    
-    // التاريخ اللي أنت حددته بالظبط
-    const correctBirthday = "25/4/2002"; 
-    
-    if (passValue === correctBirthday) {
-        // إخفاء شاشة الدخول وإظهار المحتوى
-        document.getElementById('login-screen').style.display = 'none';
-        const mainContent = document.getElementById('main-content');
-        mainContent.classList.remove('hidden');
-        
-        // العودة لأول الصفحة
-        window.scrollTo(0, 0);
-        
-        // تأثير احتفالي: إنشاء مجموعة قلوب كتير فجأة
-        for(let i=0; i<30; i++) {
-            setTimeout(createHeart, i * 50);
-        }
+    const input = document.getElementById('password').value;
+    if (input === "25/4/2002") {
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('main-content').classList.remove('hidden');
+        initSliders();
     } else {
-        // رسالة تنبيه في حالة الخطأ
-        alert("التاريخ غلط يا روحي، حاولي تاني 🌚 (اكتبي التاريخ كدة: 25/4/2002)");
+        alert("التاريخ غلط يا قلبي.. حاولي تاني 🌚");
     }
 }
 
-// 3. وظيفة التحكم في سلايدر الصور (التقليب يمين وشمال)
-function moveSlide(n, sliderId) {
-    const slider = document.getElementById(sliderId);
-    const slides = slider.getElementsByClassName('slide');
-    let activeIndex = 0;
-
-    // البحث عن الصورة الظاهرة حالياً
-    for (let i = 0; i < slides.length; i++) {
-        if (slides[i].classList.contains('active')) {
-            activeIndex = i;
-            slides[i].classList.remove('active');
-            break;
-        }
+// 3. تجهيز السلايدرز (الصور والرسائل)
+function initSliders() {
+    const pSlider = document.getElementById('slider-p');
+    for (let i = 1; i <= 12; i++) {
+        const img = document.createElement('img');
+        img.src = `p${i}.jpg`;
+        if (i === 1) img.classList.add('active');
+        pSlider.appendChild(img);
     }
 
-    // حساب مكان الصورة الجديدة
-    let newIndex = activeIndex + n;
-    if (newIndex >= slides.length) newIndex = 0;
-    if (newIndex < 0) newIndex = slides.length - 1;
-
-    // إظهار الصورة الجديدة
-    slides[newIndex].classList.add('active');
-}
-
-// 4. وظيفة إظهار صناديق الهدايا والرسائل
-function toggleGift(id) {
-    const element = document.getElementById(id);
-    
-    // تبديل الظهور
-    if (element.classList.contains('hidden-content')) {
-        element.classList.remove('hidden-content');
-        element.style.display = 'block';
-        // سكرول بسيط للهدية اللي فتحت
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else {
-        element.classList.add('hidden-content');
-        element.style.display = 'none';
+    const mSlider = document.getElementById('slider-m');
+    for (let i = 1; i <= 13; i++) {
+        const img = document.createElement('img');
+        img.src = `m${i}.jpg`;
+        if (i === 1) img.classList.add('active');
+        mSlider.appendChild(img);
     }
 }
 
-// 5. وظيفة تشغيل الأغنية
+// 4. وظائف الفتح والتقليب
+function openGallery(galleryId, iconId) {
+    document.getElementById(iconId).classList.add('hidden');
+    document.getElementById(galleryId).classList.remove('hidden');
+}
+
+function showGift(contentId, iconId) {
+    document.getElementById(iconId).classList.add('hidden');
+    document.getElementById(contentId).classList.remove('hidden');
+}
+
+function moveSlide(step, sliderId) {
+    const images = document.querySelectorAll(`#${sliderId} img`);
+    let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+    images[activeIndex].classList.remove('active');
+    let newIndex = (activeIndex + step + images.length) % images.length;
+    images[newIndex].classList.add('active');
+}
+
 function playMusic() {
-    const song = document.getElementById('romantic-song');
-    
-    if (song.paused) {
-        song.play();
-        alert("بدأت الأغنية.. اسمعيها بقلبك 💗");
-    } else {
-        song.pause();
-    }
+    const audio = document.getElementById('romantic-song');
+    audio.play();
+    alert("الأغنية بدأت.. اسمعيها بقلبك 💗");
 }
