@@ -1,62 +1,52 @@
-/* ===== باسورد ===== */
+// إنشاء القلوب
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+    document.getElementById('hearts-container').appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}
+setInterval(createHeart, 300);
+
+// التأكد من الباسورد
 function checkPassword() {
-  const v = document.getElementById("password").value.trim();
-  const passwords = ["25/4/2002", "25-4-2002", "25.4.2002"];
-
-  if (passwords.includes(v)) {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("content").classList.remove("hidden");
-  } else {
-    document.getElementById("error").innerText = "❌ التاريخ غلط";
-  }
+    const pass = document.getElementById('password').value;
+    const birthday = "2000"; // غيري ده لتاريخ ميلادها الحقيقي
+    
+    if(pass === birthday) {
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('main-content').classList.remove('hidden');
+        window.scrollTo(0, 0);
+    } else {
+        alert("التاريخ غلط يا روحي، حاولي تاني 🌚");
+    }
 }
 
-/* ===== صورها ===== */
-let imgIndex = 1;
-function toggleImages() {
-  document.getElementById("imagesBox").classList.toggle("hidden");
-}
-function nextImage() {
-  imgIndex = imgIndex < 12 ? imgIndex + 1 : 1;
-  document.getElementById("mainImage").src = `images/${imgIndex}.jpg`;
-}
-function prevImage() {
-  imgIndex = imgIndex > 1 ? imgIndex - 1 : 12;
-  document.getElementById("mainImage").src = `images/${imgIndex}.jpg`;
+// تبديل السلايدر
+function moveSlide(n, sliderId) {
+    const slides = document.querySelectorAll(`#${sliderId} .slide`);
+    let activeIndex = 0;
+    slides.forEach((s, i) => { if(s.classList.contains('active')) activeIndex = i; });
+    
+    slides[activeIndex].classList.remove('active');
+    let newIndex = (activeIndex + n + slides.length) % slides.length;
+    slides[newIndex].classList.add('active');
 }
 
-/* ===== رسائل ===== */
-let msgIndex = 1;
-function toggleMessages() {
-  document.getElementById("messagesBox").classList.toggle("hidden");
-}
-function nextMsg() {
-  msgIndex = msgIndex < 13 ? msgIndex + 1 : 1;
-  document.getElementById("msgImage").src = `messages/${msgIndex}.jpg`;
-}
-function prevMsg() {
-  msgIndex = msgIndex > 1 ? msgIndex - 1 : 13;
-  document.getElementById("msgImage").src = `messages/${msgIndex}.jpg`;
+// إظهار الهدايا
+function toggleGift(id) {
+    const element = document.getElementById(id);
+    element.classList.toggle('hidden-content');
+    if(!element.classList.contains('hidden-content')) {
+        element.style.display = 'block';
+    }
 }
 
-/* ===== هدية ===== */
-function toggleGift() {
-  document.getElementById("giftImg").classList.toggle("hidden");
-}
-
-/* ===== موسيقى ===== */
+// تشغيل الأغنية
 function playMusic() {
-  const m = document.getElementById("music");
-  m.currentTime = 0;
-  m.play();
+    const song = document.getElementById('romantic-song');
+    song.play();
+    alert("الأغنية بدأت.. اسمعي بقلبك 💗");
 }
-
-/* ===== قلوب كتير ===== */
-setInterval(() => {
-  const h = document.createElement("span");
-  h.innerHTML = "💗";
-  h.style.left = Math.random() * 100 + "vw";
-  h.style.animationDuration = (3 + Math.random() * 3) + "s";
-  document.getElementById("hearts").appendChild(h);
-  setTimeout(() => h.remove(), 6000);
-}, 300);
