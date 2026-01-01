@@ -1,55 +1,72 @@
-/* الباسورد يقبل كذا صيغة */
 const passwords = [
   "25/4/2002",
   "25-4-2002",
   "25.4.2002",
-  "25/04/2002",
+  "2542002"
 ];
 
 function checkPassword() {
-  const input = document.getElementById("password").value.trim();
-
-  if (passwords.includes(input)) {
+  const val = document.getElementById("password").value.trim();
+  if (passwords.includes(val)) {
     document.getElementById("login").style.display = "none";
     document.getElementById("content").classList.remove("hidden");
+    hearts();
   } else {
-    document.getElementById("error").innerText =
-      "❌ التاريخ مش صح يا قلبي";
+    document.getElementById("error").innerText = "❌ جربي تاني يا قلبي";
   }
 }
 
-/* سلايدر الصور */
-let index = 0;
-const images = [
-  "images/1.jpg",
-  "images/2.jpg",
-  "images/3.jpg",
-  "images/4.jpg",
-  "images/5.jpg",
-  "images/6.jpg",
-  "images/7.jpg",
-  "images/8.jpg",
-  "images/9.jpg",
-  "images/10.jpg",
-  "images/11.jpg",
-  "images/12.jpg",
-];
-
-function showImage() {
-  document.getElementById("mainImage").src = images[index];
+/* صورها */
+let imgIndex = 1;
+function toggleImages() {
+  document.getElementById("imagesBox").classList.toggle("hidden");
+  document.getElementById("mainImage").src = `images/${imgIndex}.jpg`;
 }
-
 function nextImage() {
-  index = (index + 1) % images.length;
-  showImage();
+  imgIndex = imgIndex % 12 + 1;
+  document.getElementById("mainImage").src = `images/${imgIndex}.jpg`;
 }
-
 function prevImage() {
-  index = (index - 1 + images.length) % images.length;
-  showImage();
+  imgIndex = imgIndex === 1 ? 12 : imgIndex - 1;
+  document.getElementById("mainImage").src = `images/${imgIndex}.jpg`;
 }
 
-/* فتح الهدية */
-function openGift() {
-  document.getElementById("giftImage").classList.remove("hidden");
+/* الرسائل */
+let msgIndex = 1;
+function toggleMessages() {
+  document.getElementById("messagesBox").classList.toggle("hidden");
+  document.getElementById("msgImage").src = `messages/${msgIndex}.jpg`;
+}
+function nextMsg() {
+  msgIndex = msgIndex % 13 + 1;
+  document.getElementById("msgImage").src = `messages/${msgIndex}.jpg`;
+}
+function prevMsg() {
+  msgIndex = msgIndex === 1 ? 13 : msgIndex - 1;
+  document.getElementById("msgImage").src = `messages/${msgIndex}.jpg`;
+}
+
+/* الهدية */
+function toggleGift() {
+  const g = document.getElementById("giftImg");
+  g.src = "gift/gift.jpg";
+  g.classList.toggle("hidden");
+}
+
+/* الموسيقى */
+function toggleMusic() {
+  const m = document.getElementById("music");
+  m.classList.toggle("hidden");
+  m.play();
+}
+
+/* القلوب */
+function hearts() {
+  setInterval(() => {
+    const h = document.createElement("span");
+    h.innerText = "💗";
+    h.style.left = Math.random() * 100 + "vw";
+    document.getElementById("hearts").appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+  }, 300);
 }
