@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>لها وحدها 💗</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -12,16 +12,19 @@
 <!-- قلوب متحركة -->
 <div class="hearts"></div>
 
-<!-- واجهة الباسورد -->
+<!-- شاشة الباسورد -->
 <div id="login" class="login">
   <h1>🌸 أَنْتِ كِفَايَتِي…💗 الَّتِي لَا أُبَالِي بَعْدَهَا 🌸</h1>
-
-  <p class="subtitle">
+  <p>
     اكتبي التاريخ الذي قرّر فيه الغياب أن يتراجع،  
     واختار الوجود أن يُنادي باسمك 🌚
   </p>
 
-  <input type="password" id="password" placeholder="اكتبي التاريخ هنا">
+  <input
+    type="password"
+    id="password"
+    placeholder="اكتبي تاريخ ميلادك 💗"
+  />
   <button onclick="checkPassword()">دخول</button>
   <p id="error"></p>
 </div>
@@ -29,73 +32,50 @@
 <!-- المحتوى -->
 <div id="content" class="hidden">
 
-  <section class="section">
-    <h1 class="main-text">
-      🌝💗 صباح الخير يا خيري وخيرتي واختياري
-    </h1>
+  <h2 class="title">
+    🌝💗 صباح الخير يا خيري وخيرتي واختياري
+  </h2>
 
-    <p class="hint">اضغطي هنا يا قلبي 👇</p>
+  <p class="hint">اضغطي هنا يا قلبي 👇</p>
 
-    <div class="flip-box" onclick="showGallery()">
-      🎁
-    </div>
-  </section>
+  <!-- سلايدر الصور -->
+  <div class="slider">
+    <button onclick="prevImage()">‹</button>
+    <img id="mainImage" src="images/1.jpg" />
+    <button onclick="nextImage()">›</button>
+  </div>
 
-  <!-- معرض الصور -->
-  <section id="gallery" class="section hidden">
-    <div class="slider">
-      <button onclick="prevImage()">‹</button>
-      <img id="sliderImage" src="images/1.jpg">
-      <button onclick="nextImage()">›</button>
-    </div>
-    <p class="hint">انزلي تحت يا قلبي 🌚👇</p>
-  </section>
+  <p class="scroll">انزلي تحت يا قلبي 🌚👇</p>
 
-  <div class="spacer"></div>
+  <div class="space"></div>
 
-  <!-- الرسائل -->
-  <section class="section">
-    <p class="hint">اضغطي هنا شوفي في رسالة ليكي 👇</p>
-    <div class="flip-box" onclick="showMessages()">💌</div>
-  </section>
+  <!-- الجيفت -->
+  <p class="hint">اضغطي هنا شوفي الهدية الأولى 🎁</p>
+  <div class="gift" onclick="openGift()">
+    🎁
+  </div>
 
-  <section id="messages" class="section hidden">
-    <div class="slider">
-      <button onclick="prevMsg()">‹</button>
-      <img id="msgImage" src="messages/m1.jpg">
-      <button onclick="nextMsg()">›</button>
-    </div>
-    <p class="hint">انزلي تحت يا قلبي 🌚👇</p>
-  </section>
+  <img
+    id="giftImage"
+    src="images/gifts/gift1.jpg"
+    class="hidden gift-img"
+  />
 
-  <div class="spacer"></div>
+  <div class="space"></div>
 
-  <!-- الهدية الأولى -->
-  <section class="section">
-    <p class="hint">اضغطي هنا شوفي الهدية الأولى 🌚💗👇</p>
-    <div class="gift red" onclick="showGift1()">🎁</div>
-    <img id="gift1" class="hidden gift-img" src="images/5.jpg">
-  </section>
+  <!-- موسيقى -->
+  <p class="hint">🎶 الأغنية</p>
+  <audio controls>
+    <source src="music/song.m4a" type="audio/mp4" />
+  </audio>
 
-  <div class="spacer"></div>
+  <div class="space"></div>
 
-  <!-- الهدية الثانية -->
-  <section class="section">
-    <p class="hint">اضغطي هنا شوفي الهدية الثانية 🌚💗👇</p>
-    <div class="gift pink" onclick="playMusic()">🎶</div>
-    <audio id="music" src="music/song.mp3" controls></audio>
-  </section>
-
-  <div class="spacer"></div>
-
-  <!-- الخاتمة -->
-  <section class="section">
-    <p class="end">
-      طَابَ مَقَامُكِ فِي فُؤَادِي،  
-      وَدُمْتِ لِي عُمُرًا حَتَّى أَفْنَى 💗🌹  
-      <br> نادر ♥️
-    </p>
-  </section>
+  <p class="ending">
+    طَابَ مَقَامُكِ فِي فُؤَادِي،<br />
+    وَدُمْتِ لِي عُمُرًا حَتَّى أَفْنَى 💗🌹<br />
+    نادر ♥️
+  </p>
 
 </div>
 
