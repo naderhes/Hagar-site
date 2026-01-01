@@ -1,37 +1,18 @@
 body {
   margin: 0;
-  background: linear-gradient(180deg,#ad1457,#ec407a,#f48fb1);
-  color: #fff;
+  font-family: "Cairo", sans-serif;
+  background: linear-gradient(180deg, #d94c7a, #f08ab3);
   text-align: center;
-  font-family: Tahoma;
+  color: white;
+  overflow-x: hidden;
 }
 
-.hidden { display: none; }
-
-#login {
-  min-height: 100vh;
-  padding: 60px 20px;
+.section {
+  margin: 120px 0;
 }
 
-input {
-  padding: 14px;
-  border-radius: 25px;
-  border: none;
-  width: 260px;
-  text-align: center;
-}
-
-button {
-  padding: 12px 25px;
-  border-radius: 25px;
-  border: none;
-  background: #ff80ab;
-  color: #fff;
-  margin-top: 10px;
-}
-
-.icon {
-  font-size: 60px;
+.icon-box {
+  font-size: 70px;
   cursor: pointer;
   animation: pulse 1.5s infinite;
 }
@@ -42,43 +23,51 @@ button {
   100% { transform: scale(1); }
 }
 
+.hidden {
+  display: none;
+}
+
 .slider {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .slider img {
-  width: 260px;
-  border-radius: 20px;
-}
-
-.space {
-  height: 200px;
-}
-
-.gift {
   width: 280px;
   border-radius: 20px;
 }
 
-.end {
-  margin-bottom: 80px;
-  font-size: 18px;
+button {
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.gift-img {
+  width: 300px;
+  border-radius: 25px;
+  margin-top: 20px;
 }
 
 /* القلوب */
-#hearts span {
+.hearts::before,
+.hearts::after {
+  content: "💗 💖 💕 💓 💞";
   position: fixed;
-  bottom: -20px;
-  font-size: 20px;
-  animation: float 6s linear infinite;
+  top: -10%;
+  width: 100%;
+  animation: hearts 10s linear infinite;
+  opacity: 0.4;
 }
 
-@keyframes float {
-  to {
-    transform: translateY(-110vh);
-    opacity: 0;
-  }
+.hearts::after {
+  animation-duration: 14s;
+}
+
+@keyframes hearts {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(120vh); }
 }
