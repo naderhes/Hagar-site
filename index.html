@@ -1,78 +1,89 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>لها وحدها 💗</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى أميرتي 🌸</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- ===== قلوب متحركة ===== -->
-<div id="hearts"></div>
+    <div class="hearts-container" id="hearts-container"></div>
 
-<!-- ===== شاشة الباسورد ===== -->
-<div id="login">
-  <h1>🌸 أَنْتِ كِفَايَتِي…💗 الَّتِي لَا أُبَالِي بَعْدَهَا 🌸</h1>
+    <div id="login-screen" class="screen">
+        <div class="content">
+            <h1 class="fade-in">🌸 أَنْتِ كِفَايَتِي…💗 الَّتِي لَا أُبَالِي بَعْدَهَا 🌸</h1>
+            <p class="fade-in delay-1">اكتبي التاريخ الذي قرّر فيه الغياب أن يتراجع، واختار الوجود أن يُنادي باسمك 🌚</p>
+            <input type="text" id="password" placeholder="تاريخ ميلادك (مثلاً 01/01)">
+            <button onclick="checkPassword()">دخول ✨</button>
+        </div>
+    </div>
 
-  <p>
-    اكتبي التاريخ الذي قرّر فيه الغياب أن يتراجع،<br>
-    واختار الوجود أن يُنادي باسمك 🌚
-  </p>
+    <div id="main-content" class="screen hidden">
+        
+        <section class="section">
+            <h2 class="romantic-text">🌝💗 صباح الخير يا خيري وخيرتي واختياري</h2>
+            <p>اضغطي هنا ياقلبي 👇</p>
+            
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="cover-image.jpg" alt="اضغطي هنا">
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="slider" id="slider1">
+                            <img src="her-photo1.jpg" class="slide active">
+                            <img src="her-photo2.jpg" class="slide">
+                            <button class="prev" onclick="moveSlide(-1, 'slider1')">&#10094;</button>
+                            <button class="next" onclick="moveSlide(1, 'slider1')">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="scroll-hint">انزلي تحت يا قلبي 🌚👇</p>
+        </section>
 
-  <input
-    id="password"
-    type="password"
-    placeholder="اكتبي تاريخ ميلادك"
-  >
+        <div class="spacer">. . . . . . .</div>
 
-  <button onclick="checkPassword()">دخول 💗</button>
+        <section class="section">
+            <p>اضغطي هنا شوفي في رسالة لكي 👇</p>
+            <div class="gift-box message-box" onclick="toggleGift('msg-slider')">📩</div>
+            <div id="msg-slider" class="hidden-content slider">
+                <img src="love-msg1.jpg" class="slide active">
+                <img src="love-msg2.jpg" class="slide">
+                <button class="prev" onclick="moveSlide(-1, 'msg-slider')">&#10094;</button>
+                <button class="next" onclick="moveSlide(1, 'msg-slider')">&#10095;</button>
+            </div>
+            <p class="scroll-hint">انزلي تحت يا قلبي 🌚 👇</p>
+        </section>
 
-  <p id="error"></p>
-</div>
+        <div class="spacer">. . . . . . .</div>
 
-<!-- ===== المحتوى ===== -->
-<div id="content" class="hidden">
+        <section class="section">
+            <p>اضغطي هنا شوفي الهدية الأولي 🌚💗👇</p>
+            <div class="gift-box red-box" onclick="toggleGift('gift1')">🎁</div>
+            <div id="gift1" class="hidden-content">
+                <img src="gift-photo.jpg" class="gift-img">
+                <p class="love-quote">"أنتِ أجمل ما حدث لي"</p>
+            </div>
+            <p class="scroll-hint">انزلي تحت يا قلبي 🌚 💗 👇</p>
+        </section>
 
-  <!-- صورها -->
-  <h2>اضغطي هنا وشوفي صورك 💗👇</h2>
-  <div class="box" onclick="toggleImages()">❤️</div>
+        <div class="spacer">. . . . . . .</div>
 
-  <div id="imagesBox" class="hidden slider">
-    <button onclick="prevImage()">⬅</button>
-    <img id="mainImage" src="images/1.jpg">
-    <button onclick="nextImage()">➡</button>
-  </div>
+        <section class="section">
+            <p>اضغطي هنا شوفي الهدية الثانية 🌚💗👇</p>
+            <div class="gift-box pink-box" onclick="playMusic()">🎁</div>
+            <audio id="romantic-song" src="song.mp3"></audio>
+        </section>
 
-  <!-- رسائل -->
-  <h2>اضغطي هنا شوفي رسالة ليكي 💌👇</h2>
-  <div class="box" onclick="toggleMessages()">💌</div>
+        <div class="footer">
+            <p>طَابَ مَقَامُكِ فِي فُؤَادِي،<br>وَدُمْتِ لِي عُمُرًا حَتَّى أَفْنَى💗🌹</p>
+            <p class="signature">نادر ♥️</p>
+        </div>
+    </div>
 
-  <div id="messagesBox" class="hidden slider">
-    <button onclick="prevMsg()">⬅</button>
-    <img id="msgImage" src="messages/1.jpg">
-    <button onclick="nextMsg()">➡</button>
-  </div>
-
-  <!-- هدية أولى -->
-  <h2>اضغطي هنا شوفي الهدية الأولى 🎁👇</h2>
-  <div class="box" onclick="toggleGift()">🎁</div>
-  <img id="giftImg" class="hidden gift" src="gift/gift1.jpg">
-
-  <!-- هدية ثانية (موسيقى) -->
-  <h2>اضغطي هنا شوفي الهدية الثانية 🎁👇</h2>
-  <div class="box" onclick="playMusic()">🎁</div>
-  <audio id="music" src="music/song.mp3"></audio>
-
-  <p class="end">
-    طَابَ مَقَامُكِ فِي فُؤَادِي،<br>
-    وَدُمْتِ لِي عُمُرًا حَتَّى أَفْنَى 💗🌹<br>
-    نادر ♥️
-  </p>
-
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
