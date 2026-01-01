@@ -85,3 +85,38 @@ button {
   margin: 80px 0;
   font-size: 20px;
 }
+
+.section {
+  margin: 120px 0;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.big-space {
+  height: 300px;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.clickable:hover {
+  transform: scale(1.1);
+}
+
+/* قلوب متحركة */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  color: rgba(255,255,255,0.6);
+  animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-110vh); }
+}
