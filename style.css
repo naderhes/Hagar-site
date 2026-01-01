@@ -1,32 +1,35 @@
 body {
   margin: 0;
-  font-family: Arial;
-  background: linear-gradient(180deg, #ff5fa2, #ff8ccf);
+  font-family: Tahoma;
+  background: linear-gradient(180deg, #b8326a, #f48fb1);
   color: white;
   text-align: center;
-}
-
-.center {
-  margin-top: 120px;
-}
-
-input {
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background: #ff2f92;
-  color: white;
-  cursor: pointer;
+  overflow-x: hidden;
 }
 
 .hidden {
   display: none;
+}
+
+#login {
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  width: 250px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #ff5fa2;
+  color: white;
+  cursor: pointer;
 }
 
 .box {
@@ -36,39 +39,49 @@ button {
 }
 
 @keyframes pulse {
-  0% {transform: scale(1);}
-  50% {transform: scale(1.1);}
-  100% {transform: scale(1);}
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 .slider img {
-  width: 260px;
+  width: 250px;
   border-radius: 20px;
 }
 
-.space {
-  height: 200px;
+.gift {
+  width: 250px;
+  margin-top: 20px;
+  border-radius: 20px;
 }
 
-.gift-img {
-  width: 300px;
-  border-radius: 20px;
+/* ===== القلوب ===== */
+#hearts span {
+  position: fixed;
+  bottom: -20px;
+  animation: floatUp linear infinite;
+  font-size: 20px;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
 }
 
 .end {
-  font-size: 18px;
-  margin-bottom: 100px;
-}
-
-/* قلوب */
-.hearts::before {
-  content: "💗 💕 💖 💞";
-  position: fixed;
-  top: 0;
-  animation: float 6s infinite linear;
-}
-
-@keyframes float {
-  from {top: 100%;}
-  to {top: -10%;}
+  margin: 80px 0;
+  font-size: 20px;
 }
