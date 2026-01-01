@@ -7,73 +7,42 @@
 </head>
 <body>
 
-<div id="hearts"></div>
+<!-- القلوب المتحركة -->
+<div class="hearts"></div>
 
-<!-- شاشة الدخول -->
-<div id="login">
-  <h1>🌸 أَنْتِ كِفَايَتِي…💗 الَّتِي لَا أُبَالِي بَعْدَهَا 🌸</h1>
-  <p>
-    اكتبي التاريخ الذي قرّر فيه الغياب أن يتراجع،<br>
-    واختار الوجود أن يُنادي باسمك 🌚
-  </p>
-
-  <input type="password" id="password" placeholder="اكتبي تاريخ ميلادك 💗">
-  <button onclick="checkPassword()">دخول</button>
-  <p id="error"></p>
-</div>
-
-<!-- المحتوى -->
-<div id="content" class="hidden">
-
-  <h2>🌝💗 صباح الخير يا خيري وخيرتي واختياري</h2>
-
-  <!-- زر الصور -->
-  <p>اضغطي هنا يا قلبي 👇</p>
-  <div class="icon" onclick="toggleImages()">❤️</div>
-
-  <div id="imagesBox" class="hidden slider">
-    <button onclick="prevImage()">‹</button>
-    <img id="mainImage">
-    <button onclick="nextImage()">›</button>
-  </div>
-
-  <div class="space"></div>
-
-  <!-- صندوق الرسائل -->
+<!-- صندوق الرسائل -->
+<section class="section">
   <p>اضغطي هنا شوفي رسالة ليكي 👇</p>
-  <div class="icon" onclick="toggleMessages()">💌</div>
+  <div class="icon-box" onclick="toggleMessages()">💌</div>
 
   <div id="messagesBox" class="hidden slider">
-    <button onclick="prevMsg()">‹</button>
-    <img id="msgImage">
-    <button onclick="nextMsg()">›</button>
+    <button onclick="prevMessage()">⬅️</button>
+    <img id="messageImg" src="messages/1.jpg">
+    <button onclick="nextMessage()">➡️</button>
   </div>
+</section>
 
-  <div class="space"></div>
-
-  <!-- الهدية الأولى -->
+<!-- الهدية الأولى -->
+<section class="section">
   <p>اضغطي هنا شوفي الهدية الأولى 👇</p>
-  <div class="icon" onclick="toggleGift()">🎁</div>
-  <img id="giftImg" class="hidden gift">
+  <div class="icon-box" onclick="toggleGift()">🎁</div>
 
-  <div class="space"></div>
+  <div id="giftBox" class="hidden">
+    <img src="gift/gift.jpg" class="gift-img">
+  </div>
+</section>
 
-  <!-- الهدية الثانية -->
+<!-- الهدية الثانية (موسيقى) -->
+<section class="section">
   <p>اضغطي هنا شوفي الهدية الثانية 👇</p>
-  <div class="icon" onclick="toggleMusic()">🎁</div>
-  <audio id="music" class="hidden" controls>
-    <source src="music/song.m4a">
-  </audio>
+  <div class="icon-box" onclick="toggleMusic()">🎁</div>
 
-  <div class="space"></div>
-
-  <p class="end">
-    طَابَ مَقَامُكِ فِي فُؤَادِي،<br>
-    وَدُمْتِ لِي عُمُرًا حَتَّى أَفْنَى 💗🌹<br>
-    نادر ♥️
-  </p>
-
-</div>
+  <div id="musicBox" class="hidden">
+    <audio controls>
+      <source src="music/song.m4a">
+    </audio>
+  </div>
+</section>
 
 <script src="script.js"></script>
 </body>
