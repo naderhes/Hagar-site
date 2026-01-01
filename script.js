@@ -1,11 +1,9 @@
-let imgIndex = 1;
-let msgIndex = 1;
-
+/* ===== باسورد ===== */
 function checkPassword() {
-  const val = document.getElementById("password").value.trim();
-  const allowed = ["25/4/2002","25-4-2002","25.4.2002"];
+  const v = document.getElementById("password").value.trim();
+  const passwords = ["25/4/2002", "25-4-2002", "25.4.2002"];
 
-  if (allowed.includes(val)) {
+  if (passwords.includes(v)) {
     document.getElementById("login").style.display = "none";
     document.getElementById("content").classList.remove("hidden");
   } else {
@@ -13,34 +11,52 @@ function checkPassword() {
   }
 }
 
-function toggle(id) {
-  document.getElementById(id).classList.toggle("hidden");
+/* ===== صورها ===== */
+let imgIndex = 1;
+function toggleImages() {
+  document.getElementById("imagesBox").classList.toggle("hidden");
 }
-
 function nextImage() {
-  imgIndex++;
-  if (imgIndex > 12) imgIndex = 1;
-  document.getElementById("photo").src = `images/${imgIndex}.jpg`;
+  imgIndex = imgIndex < 12 ? imgIndex + 1 : 1;
+  document.getElementById("mainImage").src = `images/${imgIndex}.jpg`;
 }
-
 function prevImage() {
-  imgIndex--;
-  if (imgIndex < 1) imgIndex = 12;
-  document.getElementById("photo").src = `images/${imgIndex}.jpg`;
+  imgIndex = imgIndex > 1 ? imgIndex - 1 : 12;
+  document.getElementById("mainImage").src = `images/${imgIndex}.jpg`;
 }
 
+/* ===== رسائل ===== */
+let msgIndex = 1;
+function toggleMessages() {
+  document.getElementById("messagesBox").classList.toggle("hidden");
+}
 function nextMsg() {
-  msgIndex++;
-  if (msgIndex > 13) msgIndex = 1;
-  document.getElementById("msg").src = `messages/${msgIndex}.jpg`;
+  msgIndex = msgIndex < 13 ? msgIndex + 1 : 1;
+  document.getElementById("msgImage").src = `messages/${msgIndex}.jpg`;
 }
-
 function prevMsg() {
-  msgIndex--;
-  if (msgIndex < 1) msgIndex = 13;
-  document.getElementById("msg").src = `messages/${msgIndex}.jpg`;
+  msgIndex = msgIndex > 1 ? msgIndex - 1 : 13;
+  document.getElementById("msgImage").src = `messages/${msgIndex}.jpg`;
 }
 
-function playMusic() {
-  document.getElementById("music").play();
+/* ===== هدية ===== */
+function toggleGift() {
+  document.getElementById("giftImg").classList.toggle("hidden");
 }
+
+/* ===== موسيقى ===== */
+function playMusic() {
+  const m = document.getElementById("music");
+  m.currentTime = 0;
+  m.play();
+}
+
+/* ===== قلوب كتير ===== */
+setInterval(() => {
+  const h = document.createElement("span");
+  h.innerHTML = "💗";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.animationDuration = (3 + Math.random() * 3) + "s";
+  document.getElementById("hearts").appendChild(h);
+  setTimeout(() => h.remove(), 6000);
+}, 300);
