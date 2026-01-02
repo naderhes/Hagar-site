@@ -14,7 +14,7 @@
         <div class="login-box">
             <h1 class="text-glow">🌸 أَنْتِ كِفَايَتِي…💗 الَّتِي لَا أُبَالِي بَعْدَهَا 🌸</h1>
             <p>اكتبي التاريخ الذي قرّر فيه الغياب أن يتراجع، واختار الوجود أن يُنادي باسمك 🌚</p>
-            <input type="text" id="password" placeholder="25/4/2002">
+            <input type="text" id="password" placeholder="اكتبي التاريخ هنا (يوم/شهر/سنة)">
             <button onclick="checkPassword()">دخول ✨</button>
         </div>
     </div>
@@ -26,8 +26,7 @@
         <div class="interaction-section">
             <div id="big-heart" class="heart-icon" onclick="openGallery('gallery1', 'big-heart')">❤️</div>
             <div id="gallery1" class="slider-container hidden">
-                <div class="slider" id="slider-p">
-                    </div>
+                <div class="slider" id="slider-p"></div>
                 <button class="prev" onclick="moveSlide(-1, 'slider-p')">&#10094;</button>
                 <button class="next" onclick="moveSlide(1, 'slider-p')">&#10095;</button>
             </div>
@@ -39,8 +38,7 @@
             <p>اضغطي هنا شوفي في رسالة لكي 👇</p>
             <div id="msg-box" class="gift-box pulse" onclick="openGallery('gallery2', 'msg-box')">📩</div>
             <div id="gallery2" class="slider-container hidden">
-                <div class="slider" id="slider-m">
-                    </div>
+                <div class="slider" id="slider-m"></div>
                 <button class="prev" onclick="moveSlide(-1, 'slider-m')">&#10094;</button>
                 <button class="next" onclick="moveSlide(1, 'slider-m')">&#10095;</button>
             </div>
@@ -52,7 +50,9 @@
             <p>اضغطي هنا شوفي الهدية الأولي 🌚💗👇</p>
             <div id="gift1-box" class="gift-box red-gift" onclick="showGift('gift1-content', 'gift1-box')">🎁</div>
             <div id="gift1-content" class="hidden">
-                <img src="gift.jpg" class="single-gift-img" alt="هدية">
+                <div class="slider-container">
+                    <img src="images/gift.jpg" class="single-gift-img" alt="هدية">
+                </div>
                 <p class="love-text">أنتِ أجمل هدايا القدر 💗</p>
             </div>
         </div>
@@ -62,7 +62,7 @@
         <div class="interaction-section">
             <p>اضغطي هنا شوفي الهدية الثانية 🌚💗👇</p>
             <div id="gift2-box" class="gift-box pink-gift" onclick="playMusic()">🎁</div>
-            <audio id="romantic-song" src="song.mp3"></audio>
+            <audio id="romantic-song" src="music/song.mp3"></audio>
         </div>
 
         <div class="footer">
