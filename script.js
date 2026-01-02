@@ -14,6 +14,7 @@ setInterval(createFloatingHeart, 200);
 // 2. الباسورد
 function checkPassword() {
     const input = document.getElementById('password').value.trim();
+    // تأكد من كتابة التاريخ بالظبط كده: 25/4/2002
     if (input === "25/4/2002") {
         document.getElementById('login-screen').classList.add('hidden');
         document.getElementById('main-content').classList.remove('hidden');
@@ -24,9 +25,9 @@ function checkPassword() {
     }
 }
 
-// 3. تحميل الصور من المجلدات
+// 3. تحميل الصور من المجلدات (بناءً على ملفاتك في الصور)
 function initSliders() {
-    // صور المعرض من مجلد images
+    // صور المعرض (12 صورة من فولدر images)
     const pSlider = document.getElementById('slider-p');
     pSlider.innerHTML = '';
     for (let i = 1; i <= 12; i++) {
@@ -36,7 +37,7 @@ function initSliders() {
         pSlider.appendChild(img);
     }
 
-    // صور الرسائل من مجلد messages
+    // صور الرسائل (13 صورة من فولدر messages)
     const mSlider = document.getElementById('slider-m');
     mSlider.innerHTML = '';
     for (let i = 1; i <= 13; i++) {
