@@ -4,6 +4,7 @@ body {
     overflow-x: hidden;
 }
 
+/* انيميشن القلوب البامبي الصغير */
 .floating-heart {
     position: fixed; bottom: -20px;
     color: #FFB7C5; font-size: 14px;
@@ -19,6 +20,7 @@ body {
 #login-screen {
     height: 100vh; background: #ff85a1;
     display: flex; align-items: center; justify-content: center;
+    position: fixed; width: 100%; top: 0; z-index: 2000;
 }
 
 #main-content {
@@ -38,55 +40,55 @@ body {
     100% { transform: scale(1); }
 }
 
-/* تعديل حجم القالب ليكون رقيقاً (350 بكسل كحد أقصى) */
+/* القالب المرن لمنع قص الصور */
 .slider-container {
     position: relative;
     display: inline-block;
-    width: 350px; /* العرض الثابت للأناقة */
-    max-width: 90%; /* للموبايلات الصغيرة */
+    width: 290px; /* حجم أنيق ورقيق */
+    max-width: 90%;
     margin: 20px auto;
-    border: 8px solid #fff;
-    border-radius: 15px;
+    border: 6px solid #fff;
+    border-radius: 12px;
     background: #fff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     overflow: hidden;
 }
 
 .slider {
     width: 100%;
-    height: 450px; /* طول ثابت متناسق مع العرض */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f9f9f9;
+    background: #fff;
 }
 
 .slider img {
     display: none;
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* لضمان ملء الصورة للقالب بدون تشويه */
+    height: auto; /* يضمن ظهور الطول بالكامل */
+    object-fit: contain; /* يضمن عدم قص أي تفصيلة */
+    padding: 5px;
 }
 
 .slider img.active { display: block; }
 
 .prev, .next {
     position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(255,255,255,0.8); border: none; font-size: 24px; 
-    padding: 8px 12px; cursor: pointer; color: #d63384; border-radius: 50%;
+    background: rgba(255,255,255,0.6); border: none; font-size: 20px; 
+    padding: 6px 10px; cursor: pointer; color: #d63384; border-radius: 50%;
     z-index: 10;
 }
-.next { right: 5px; } .prev { left: 5px; }
+.next { right: 2px; } .prev { left: 2px; }
 
-.spacer { height: 400px; padding-top: 200px; font-size: 20px; color: #ffd1dc; }
+.spacer { height: 400px; padding-top: 200px; font-size: 18px; color: #ffd1dc; }
 
-.single-gift-img { width: 100%; height: auto; display: block; }
+.single-gift-img { width: 100%; height: auto; display: block; border-radius: 8px; }
 
 .footer { margin-top: 80px; padding: 40px; background: rgba(0,0,0,0.1); font-size: 20px; }
 
 input {
     padding: 12px; border-radius: 25px; border: none; width: 220px;
-    text-align: center; margin: 15px; font-size: 16px;
+    text-align: center; margin: 15px; font-size: 16px; color: #333;
 }
 
 button {
