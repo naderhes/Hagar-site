@@ -4,7 +4,6 @@ body {
     overflow-x: hidden;
 }
 
-/* القلوب البامبي الصغير */
 .floating-heart {
     position: fixed; bottom: -20px;
     color: #FFB7C5; font-size: 14px;
@@ -30,7 +29,6 @@ body {
 .hidden { display: none !important; }
 
 .heart-icon { font-size: 100px; cursor: pointer; animation: pulse 1.5s infinite; }
-
 .gift-box { font-size: 80px; cursor: pointer; margin: 20px; }
 
 .pulse { animation: pulse 2s infinite; }
@@ -40,11 +38,12 @@ body {
     100% { transform: scale(1); }
 }
 
-/* تعديل البرواز ليناسب حجم الصورة */
+/* تعديل حجم القالب ليكون رقيقاً (350 بكسل كحد أقصى) */
 .slider-container {
     position: relative;
-    display: inline-block; /* يخلي البرواز على قد الصورة */
-    max-width: 90%;
+    display: inline-block;
+    width: 350px; /* العرض الثابت للأناقة */
+    max-width: 90%; /* للموبايلات الصغيرة */
     margin: 20px auto;
     border: 8px solid #fff;
     border-radius: 15px;
@@ -53,30 +52,40 @@ body {
     overflow: hidden;
 }
 
+.slider {
+    width: 100%;
+    height: 450px; /* طول ثابت متناسق مع العرض */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+}
+
 .slider img {
     display: none;
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* لضمان ملء الصورة للقالب بدون تشويه */
 }
 
 .slider img.active { display: block; }
 
 .prev, .next {
     position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(255,255,255,0.7); border: none; font-size: 24px; 
-    padding: 10px; cursor: pointer; color: #d63384; border-radius: 50%;
+    background: rgba(255,255,255,0.8); border: none; font-size: 24px; 
+    padding: 8px 12px; cursor: pointer; color: #d63384; border-radius: 50%;
+    z-index: 10;
 }
 .next { right: 5px; } .prev { left: 5px; }
 
-.spacer { height: 500px; padding-top: 250px; font-size: 20px; color: #ffd1dc; }
+.spacer { height: 400px; padding-top: 200px; font-size: 20px; color: #ffd1dc; }
 
-.single-gift-img { max-width: 100%; height: auto; display: block; }
+.single-gift-img { width: 100%; height: auto; display: block; }
 
-.footer { margin-top: 100px; padding: 50px; background: rgba(0,0,0,0.1); font-size: 22px; }
+.footer { margin-top: 80px; padding: 40px; background: rgba(0,0,0,0.1); font-size: 20px; }
 
 input {
-    padding: 12px; border-radius: 25px; border: none; width: 250px;
+    padding: 12px; border-radius: 25px; border: none; width: 220px;
     text-align: center; margin: 15px; font-size: 16px;
 }
 
