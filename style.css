@@ -4,10 +4,10 @@ body {
     overflow-x: hidden;
 }
 
-/* القلوب الطائرة من تحت لفوق */
+/* القلوب البامبي الصغير */
 .floating-heart {
     position: fixed; bottom: -20px;
-    color: #ff85a1; font-size: 15px;
+    color: #FFB7C5; font-size: 14px;
     animation: rise 5s linear forwards;
     z-index: 1000; pointer-events: none;
 }
@@ -40,23 +40,47 @@ body {
     100% { transform: scale(1); }
 }
 
+/* تعديل البرواز ليناسب حجم الصورة */
 .slider-container {
-    position: relative; width: 300px; height: 400px;
-    margin: 20px auto; border: 5px solid #fff; border-radius: 15px;
-    overflow: hidden; background: #000;
+    position: relative;
+    display: inline-block; /* يخلي البرواز على قد الصورة */
+    max-width: 90%;
+    margin: 20px auto;
+    border: 8px solid #fff;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    overflow: hidden;
 }
 
-.slider img { width: 100%; height: 100%; object-fit: cover; display: none; }
+.slider img {
+    display: none;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
 .slider img.active { display: block; }
 
 .prev, .next {
     position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(255,255,255,0.5); border: none; font-size: 20px; padding: 10px; cursor: pointer;
+    background: rgba(255,255,255,0.7); border: none; font-size: 24px; 
+    padding: 10px; cursor: pointer; color: #d63384; border-radius: 50%;
 }
-.next { right: 0; } .prev { left: 0; }
+.next { right: 5px; } .prev { left: 5px; }
 
-.spacer { height: 600px; padding-top: 300px; font-size: 20px; color: #ffd1dc; }
+.spacer { height: 500px; padding-top: 250px; font-size: 20px; color: #ffd1dc; }
 
-.single-gift-img { width: 80%; border-radius: 15px; }
+.single-gift-img { max-width: 100%; height: auto; display: block; }
 
 .footer { margin-top: 100px; padding: 50px; background: rgba(0,0,0,0.1); font-size: 22px; }
+
+input {
+    padding: 12px; border-radius: 25px; border: none; width: 250px;
+    text-align: center; margin: 15px; font-size: 16px;
+}
+
+button {
+    padding: 10px 30px; border-radius: 25px; border: none;
+    background: #d63384; color: white; cursor: pointer; font-size: 18px;
+}
