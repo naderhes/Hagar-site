@@ -1,4 +1,4 @@
-// 1. توليد القلوب
+// 1. إنشاء القلوب الطائرة
 function createFloatingHeart() {
     const container = document.getElementById('hearts-container');
     const heart = document.createElement('div');
@@ -6,45 +6,49 @@ function createFloatingHeart() {
     heart.innerHTML = '💗';
     heart.style.left = Math.random() * 100 + 'vw';
     heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
-    container.appendChild(heart);
+    if(container) container.appendChild(heart);
     setTimeout(() => heart.remove(), 5000);
 }
 setInterval(createFloatingHeart, 200);
 
-// 2. الباسورد
+// 2. دالة الدخول (الباسورد)
 function checkPassword() {
-    const input = document.getElementById('password').value.trim();
-    // تأكد من كتابة التاريخ بالظبط كده: 25/4/2002
-    if (input === "25/4/2002") {
-        document.getElementById('login-screen').classList.add('hidden');
+    const passInput = document.getElementById('password');
+    const value = passInput.value.trim(); // تنظيف أي مسافات زائدة
+    
+    if (value === "25/4/2002") {
+        document.getElementById('login-screen').style.display = 'none';
         document.getElementById('main-content').classList.remove('hidden');
-        initSliders();
+        initSliders(); // تشغيل السلايدر عند الدخول
         window.scrollTo(0, 0);
     } else {
         alert("التاريخ غلط يا روحي.. حاولي تاني 🌚");
+        passInput.value = ""; 
     }
 }
 
-// 3. تحميل الصور من المجلدات (بناءً على ملفاتك في الصور)
+// 3. تحميل الصور من المجلدات
 function initSliders() {
-    // صور المعرض (12 صورة من فولدر images)
+    // الصور الرئيسية (12 صورة)
     const pSlider = document.getElementById('slider-p');
-    pSlider.innerHTML = '';
-    for (let i = 1; i <= 12; i++) {
-        const img = document.createElement('img');
-        img.src = `images/${i}.jpg`;
-        if (i === 1) img.classList.add('active');
-        pSlider.appendChild(img);
+    if(pSlider.innerHTML === "") { // لضمان عدم التكرار
+        for (let i = 1; i <= 12; i++) {
+            const img = document.createElement('img');
+            img.src = `images/${i}.jpg`;
+            if (i === 1) img.classList.add('active');
+            pSlider.appendChild(img);
+        }
     }
 
-    // صور الرسائل (13 صورة من فولدر messages)
+    // صور الرسائل (13 صورة)
     const mSlider = document.getElementById('slider-m');
-    mSlider.innerHTML = '';
-    for (let i = 1; i <= 13; i++) {
-        const img = document.createElement('img');
-        img.src = `messages/messages${i}.jpg`;
-        if (i === 1) img.classList.add('active');
-        mSlider.appendChild(img);
+    if(mSlider.innerHTML === "") {
+        for (let i = 1; i <= 13; i++) {
+            const img = document.createElement('img');
+            img.src = `messages/messages${i}.jpg`;
+            if (i === 1) img.classList.add('active');
+            mSlider.appendChild(img);
+        }
     }
 }
 
@@ -54,8 +58,9 @@ function openGallery(galleryId, iconId) {
 }
 
 function showGift(contentId, iconId) {
-    document.getElementById(iconId).classList.add('hidden');
-    document.getElementById(contentId).classList.remove('hidden');
+    document.getElementById(iconId).style.display = 'none';
+    const content = document.getElementById(contentId);
+    content.classList.remove('hidden');
 }
 
 function moveSlide(step, sliderId) {
